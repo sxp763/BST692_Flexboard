@@ -2,6 +2,7 @@
 title: "Sabrina P."
 output: 
   flexdashboard::flex_dashboard:
+    theme: yeti
     orientation: rows
     vertical_layout: fill
     social: [ "twitter"]
