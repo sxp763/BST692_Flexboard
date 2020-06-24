@@ -5,7 +5,7 @@ output:
     orientation: rows
     vertical_layout: fill
     social: [ "twitter"]
-    source_code: https://github.com/sxp763/FlexDashboard
+    source_code: https://github.com/sxp763/BST692_Flexboard/blob/master/Covid-19_Flexdashboard.Rmd
 date: "`r Sys.Date()`"
 runtime: shiny
 ---
@@ -60,6 +60,7 @@ Highestcasesbycounty <-
                      Max_death = max(Groupbycounty_df$deaths), 
                      maxCountyName = county[which(cases == Max_case & deaths == Max_death)])
 ```
+
 Analysis
 =====================================
 
@@ -68,32 +69,35 @@ Row
 
 ### Total Confirmed Positive
 
-```{r}
+```{r Valuebox1}
 Positive <- paste0(round(sum(Groupbycounty_df$confirmed_cases, 
                            na.rm = TRUE)))
 
-valueBox(Positive, icon = "fa-user-o", color = "orange")
+valueBox(Positive, 
+         icon = "fa-user-o", color = "orange")
 ```
 
 ### Total Confirmed Deaths
 
-```{r}
+```{r Valuebox2}
 Total_deaths <- paste0(round(sum(Groupbycounty_df$deaths, 
                                na.rm = TRUE)))
 
-valueBox(Total_deaths, icon = "fa-times", color = "teal")
+valueBox(Total_deaths, 
+         icon = "fa-times", color = "teal")
 ```
 
 ### County with the Highest # of Cases & Deaths
 
-```{r}
+```{r Valuebox3}
 Bycounty <- paste0(Highestcasesbycounty$maxCountyName)
 
 valueBox(Bycounty, 
          icon = "fa-arrow-up", color = "olive")
 ```
 
-## Column {data-width=500}
+Column {data-width=500}
+-------------------------------------
 
 ### Rate of Cases since March 1
 
